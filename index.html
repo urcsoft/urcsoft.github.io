@@ -1,0 +1,854 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SHIELD - Free Bootstrap 3 Theme">
+    <meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
+    
+    <title>优潮软件</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/icomoon.css" rel="stylesheet">
+    <link href="css/animate-custom.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=85i4I6KDXgVHv5Z7yoC3r5rckADHGGh1"></script>
+    
+    <style type="text/css">
+	.header-title {
+		font-family:'华文行楷', Geneva, sans-serif;
+		float:left;
+		height:50px;
+		padding:16px 10px 10px 14px;
+		font-size:24px;
+		line-height:24px;
+		margin-left:-8px;
+		color: #fff;
+	}
+	.item-li {
+		float:left;
+		width:300px;
+		height:400px;
+		border:0;
+		position:relative;
+	}
+	.item-title{
+		position: relative;
+		color:#fff;
+		font-size:22px;
+		line-height:24px;
+		margin:0;
+		padding:0;
+		font-weight:bold;
+		text-align:center;
+		margin-top:160px;
+		z-index:10;
+	}
+	
+	.item-desc{
+		position: relative;
+		margin-top:22px;
+		font-size:14px;
+		color:#fff;
+		text-align:center;
+		padding:0px 23px;
+		line-height:24px;
+		height:72px;
+		margin-top:12px;
+		z-index:10;
+	}
+    
+	.item-link{
+		position: relative;
+		display:inline-block;
+		border:1px solid #fff;
+		width:120px;
+		height:36px;
+		line-height:36px;
+		font-size:14px;
+		color:#fff;
+		text-decoration:none;
+		text-align:center;
+		margin:24px 90px;
+		cursor:pointer;
+		z-index:10;
+	}
+	
+	.item-link:hover{
+		color:#00c1de;
+		background:#FFF;
+	}
+	
+	.item-img {
+		position:relative;
+		display:block;
+		width:300px;
+		z-index:5;
+		border:0;
+		margin:0;
+		padding:0;
+		height:400px;
+	}
+	
+	.item-content {
+		position:absolute;
+		width:300px;
+		height:400px;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		z-index:12;
+	}
+	
+	.item-content-bg {
+		background: #161A1D;
+		position:absolute;
+		width:300px;
+		height:400px;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		z-index:11;
+		opacity:0;
+		filter:alpha(opacity=0);
+		-ms-filter:progid:DXImageTransform.Microsoft.Alpha(opacity=(0));
+	}
+
+	.picScroll-case .hd ul{ 
+		float:right;
+		overflow:hidden;
+		margin-right:600px;
+		margin-left:auto;
+		zoom:1;
+	}
+	.picScroll-case .hd ul li{ 
+		float:left;
+		width:18px;
+		height:18px;
+		overflow:hidden;
+		margin-right:5px;
+		text-indent:-999px;
+		cursor:pointer;
+		background:url("images/dot.png") no-repeat; 
+	}
+	.picScroll-case .hd ul li.on{
+		background:url("images/dot_on.png") no-repeat; 
+	}
+	
+	#left_arrow{
+		display:none;
+		background:transparent;
+		position:absolute;
+		z-index:100;
+		cursor:pointer;
+	}
+	
+	#left_arrow a{
+		background-color:#666;
+		width:40px;
+		height:400px;
+		position:absolute;
+		z-index:100;
+		opacity:0.6;
+		filter:alpha(opacity=60);
+		-ms-filter:progid:DXImageTransform.Microsoft.Alpha(opacity=(60));
+	}
+	
+	#left_arrow span{
+		margin:170px 11px;
+		position:absolute;
+		background:url(images/btn/left_normal.png) no-repeat;
+		width:17px;
+		height:64px;
+		z-index:101;
+	}
+	
+	#right_arrow {
+		display:none;
+		right:0px;
+		position:absolute;
+		z-index:100;
+		background:transparent;
+		cursor:pointer;
+	}
+	
+	#right_arrow a{
+		right:0px;
+		background-color:#666;
+		width:40px;
+		height:400px;
+		position:absolute;
+		z-index:100;
+		opacity:0.6;
+		filter:alpha(opacity=60);
+		-ms-filter:progid:DXImageTransform.Microsoft.Alpha(opacity=(60));
+	}
+	
+	#right_arrow span{
+		margin:170px 11px;
+		position:absolute;
+		right:0px;
+		background:url(images/btn/right_normal.png) no-repeat;
+		width:17px;
+		height:64px;
+		z-index:101;
+	}
+	
+	.switchCaseBtn {
+		width:60px;
+		height:30px;
+		float:left;
+		list-style:none;
+		margin-right:10px;
+		text-align:center;
+		line-height:30px;
+		color:#7f7f7f;
+	}
+	
+	.switchCaseBtn-on {
+		background:#3EC8A7;
+		cursor:default;
+		color:#fff;
+	}
+	
+	.switchCaseBtn-off {
+		background:#F4F4F4;
+		cursor:pointer;
+	}
+	
+	.switchCaseBtn-off:hover {
+		background:#A0A0A0;
+		color:#fff;
+	}
+	
+	.displayN {
+		display:none;
+	}
+
+	#scrollUp {
+		position: fixed;
+		_position: absolute;
+		top: 70%;
+		right: 5px;
+		z-index: 99;
+		/*border: 1px solid #eee;*/
+		background:url(images/scrollUp.png) no-repeat;
+		width:40px;
+		height:40px;
+		cursor:pointer;
+	}
+    </style>
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#navbar-main" style="min-width:1200px; width:100%;">
+  	<div id="scrollUp"></div>
+  	<div id="navbar-main">
+      <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <img src="images/logo_master.png" style="float:left; margin-top:7px; margin-left:20px; height:36px; width:36px;" />
+          <img src="images/urcName.png" style="float:left; margin-top:10px; margin-left:6px; height:32px; width:108.8px;" />
+        </div>
+        <div class="navbar-collapse" style="margin-left: 150px;">
+          <ul class="nav navbar-nav">
+            <li><a href="#home" class="smoothScroll">主页</a></li>
+			<li> <a href="#services" class="smoothScroll"> 服务</a></li>
+			<li> <a href="#solution" class="smoothScroll"> 解决方案</a></li>
+			<li> <a href="#case" class="smoothScroll"> 案例</a></li>
+			<li> <a href="#team" class="smoothScroll"> 团队介绍</a></li>
+			<li> <a href="#contact" class="smoothScroll"> 联系我们</a></li>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    </div>
+  
+		<!-- ==== HEADERWRAP ==== -->
+	<div id="home" style="margin-top:-50px; padding-top:50px;">
+	    <div id="headerwrap" style="background:url('images/header_bg.jpg') no-repeat center top; background-size: 100% 100%; width:100p%;">
+                <header class="clearfix" style="margin-top:-80px; width:1200px; margin-left:auto; margin-right:auto;">
+                    <br/>
+                    <br/>
+                    <p style="margin-left:10px;">你的选择，好的选择</p>
+                    <p class="fts10" style="margin-left:10px;">以前的选择成就了你的今天，而今天的选择将决定你的未来<br/>选择优潮，让我们与你共同创造属于你的软件和属于我们的未来</p>
+                </header>	    
+            </div>
+	</div>
+        <!-- /headerwrap -->
+        
+        <!-- ==== GREYWRAP ==== -->
+		<div id="services">
+			<div class="row">
+            	<br>
+				<h1 class="centered">服务</h1>
+				<hr>
+                <br>
+				<div class="col-lg-4 callout">
+                    <img src="images/complex.png" style="height:60px; width:60px;" />
+					<h2>大而全的IT解决方案</h2>
+                    <p>通过整合与虚拟化公司的核心业务，优化和标准化相关的业务流程，尽可能的实现简化和自动化，并将最前沿的ＩＴ技术动态优化混合其中，形成客户个性化的信息系统。</p>
+				</div><!-- col-lg-4 -->
+				<div class="col-lg-4 callout">
+					<img src="images/simple.png" style="height:60px; width:60px;" />
+					<h2>小微企业信息化系统</h2>
+					<p>基于多年的ＩＴ咨询与服务实践，积累了丰富的经验，快速实现常规小型信息系统的调研，个性化开发，实际业务应用培训的工作 。为实现低成本、高质量的软件开发创造了有利条件。</p>
+				</div><!-- col-lg-4 -->	
+				
+				<div class="col-lg-4 callout">
+					<img src="images/ito.png" style="height:60px; width:60px;" />
+					<h2>外住外派协力</h2>
+					<p>针对客户的需求，补充不足的ＩＴ人员，提供不熟悉的ＩＴ技能支援。融合客户的业务经验和我们的系统设计知识，完成信息化目标。</p>
+				</div><!-- col-lg-4 -->	
+			</div><!-- row -->
+		</div><!-- greywrap -->
+        <section class="section-divider textdivider divider2" style="background:url('images/bg/services_bg.jpg') no-repeat center top; background-size: 100% 100%;">
+                <div class="container">
+                    <h1>DESIGN IS AN INTERACTION</h1>
+                    <hr>
+                    <p>To develop a deeper and more meaningful connection with consumers, we believe design must invite them to take part in the conversation.</p>
+                </div><!-- container -->
+		</section><!-- section -->
+        
+        <!-- ==== Solution ==== -->
+		<div class="container" id="solution" name="solution" style="position:relative;">
+			<br>
+			<br>
+			<div class="row" >
+				<h2 class="centered">解决方案</h2>
+				<hr>
+				<br>
+                <div class="picScroll-left" style="width:1200px; border:0;">
+                    <div class="bd" style="overflow:hidden; position:relative; width:1200px; border:0;" onMouseMove="showArrow();" onMouseOut="hideArrow();">
+                    	<div id="left_arrow" class="next">
+                        	<a></a>
+                            <span></span>
+                        </div>
+                        
+                        <div id="right_arrow" class="prev">
+                        	<a></a>
+                            <span></span>
+                        </div>
+                        
+                        
+                        <ul class="picList" style="position: relative; overflow: hidden; padding: 0px; margin: 0px; border:0; list-style:none; cursor:pointer;">
+                            <li class="item-li">
+                            	<img src="images/solution/solution_website.jpg" class="item-img">
+                                <div>
+                                	<div class="item-content-bg"></div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">网站</h3>
+                                        <p class="item-desc">随着互联网的发展，一个企业想要更好的发展，必须让社会了解自己，那么展现企业信息和文化的主页是必要的。</p>
+                                        <!-- <span class="item-link">查看详情</span> -->
+                                    </div>
+                                </div>
+                                
+                            </li>
+                            <li class="item-li">
+                            	<img src="images/solution/solution_app.jpg" class="item-img">
+                                <div>
+                                	<div class="item-content-bg"></div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">APP</h3>
+                                		<p class="item-desc">精准性、互动性、创意性、超强的用户黏性是APP解决方案的根本，增强企业信息的同步，方便企业管理的实时性。</p>
+                                        <!-- <span class="item-link">查看详情</span> -->
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-li">
+                            	<img src="images/solution/solution_online.jpg" class="item-img">
+                                <div>
+                                	<div class="item-content-bg"></div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">电商</h3>
+                                		<p class="item-desc">结合大数据分析，帮助可以充分的理解市场需求。让客户充分享受互联网前沿技术带来的商业价值</p>
+                                        <!-- <span class="item-link">查看详情</span> -->
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-li">
+                            	<img src="images/solution/solution_finance.jpg" class="item-img">
+                                <div>
+                                	<div class="item-content-bg"></div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">金融</h3>
+                                		<p class="item-desc">为金融行业提供量身定制的解决方案，具备低成本、高弹性、高可用、安全合规的特性，让你能够更快地预测和响应市场动态，抢占先机</p>
+                                        <!-- <span class="item-link">查看详情</span> -->
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-li">
+                            	<img src="images/solution/solution_affairs.jpg" class="item-img">
+                                <div>
+                                	<div class="item-content-bg"></div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">政务</h3>
+                                		<p class="item-desc">立足于对政务信息化的深刻理解，构筑开放共享、敏捷高效、安全可信的政务系统，提升预算约束力，并加强问责制。</p>
+                                        <!-- <span class="item-link">查看详情</span> -->
+                                    </div>
+                                </div>
+                            </li>
+        					<li class="item-li">
+                            	<img src="images/solution/solution_internet.jpg" class="item-img">
+                                <div>
+                                	<div class="item-content-bg"></div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">物联网</h3>
+                                		<p class="item-desc">定制化方案，使用种类繁多的集成开发环境和编程语言，为传统硬件厂商和中小平台服务商快速搭建稳定可靠、安全可控的物联网平台</p>
+                                        <!-- <span class="item-link">查看详情</span> -->
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-li">
+                            	<img src="images/solution/solution_wealth.jpg" class="item-img">
+                                <div>
+                                	<div class="item-content-bg"></div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">财务</h3>
+                                		<p class="item-desc">企业的财务规划与分析、财务结算流程、资金和风险管理、财务运营，以及治理、风险与合规性决定企业的竞争优势。我们可以帮助各种类型的企业财务高管在运营现有业务的同时，为未来的变化未雨绸缪。</p>
+                                        <!-- <span class="item-link">查看详情</span> -->
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-li">
+                            	<img src="images/solution/solution_administration.jpg" class="item-img">
+                            	<div>
+                                	<div class="item-content-bg"></div>
+                                    <div class="item-content">
+                                        <h3 class="item-title">管理</h3>
+                                		<p class="item-desc">随着社会的发展，避免人力的浪费，提高企业办事效率。信息化管理系统是企业管理进步重要的组成部分</p>
+                                        <!-- <span class="item-link">查看详情</span> -->
+                                    </div>
+                                </div>
+                            </li>
+                            <!--<li style="float:left; width:300px; height:400px; border:0; background:#00c1de;">
+                                <h3 class="item-title">GIS</h3>
+                                <p class="item-desc">GIS系统是社会进步的重要体现。公司为企业提供了地图数据加工到互联网发布都提供了成熟的商业解决方案</p>
+                                <span class="item-link">查看详情</span>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+			</div><!-- row -->
+		</div><!-- container -->
+        
+        <!-- ==== Solution ==== -->
+		<div class="container" id="case" name="case" style="position:relative;">
+			<br>
+			<br>
+			<div class="row" >
+				<h2 class="centered">成功案例</h2>
+				<hr>
+				<br>
+                <div id="case_1" class="picScroll-case" style="width:1200px; border:0;">
+                    <div class="bd" style="overflow:hidden; position:relative; width:1200px; border:0;">
+                        <ul class="picList" style="position: relative; overflow: hidden; padding: 0px; margin: 0px; border:0; list-style:none; cursor:pointer;">
+                            <li style="float:left; width:400px; border:0;">
+                                <div class="col-md-4 ">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" width="370" height="247" src="images/portfolio/jmh.png" alt="">
+                                            <figcaption>
+                                                <h5>姐妹会</h5>
+                                                <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                            <li style="float:left; width:400px; border:0;">
+                                <div class="col-md-4">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" src="images/portfolio/PictureManual.png" alt="">
+                                            <figcaption>
+                                                <h5>PictureManual</h5>
+                                                <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                            <li style="float:left; width:400px; border:0;">
+                                <!-- PORTFOLIO IMAGE 3 -->
+                                <div class="col-md-4">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" src="images/portfolio/webbuild.png" alt="">
+                                            <figcaption>
+                                                <h5>建设中</h5>
+                                                <!--<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>-->
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                        </ul>
+                    </div>
+				</div>
+                <div id="case_2" class="picScroll-case displayN" style="width:1200px; border:0;">
+                    <div class="bd" style="overflow:hidden; position:relative; width:1200px; border:0;">
+                        <ul class="picList" style="position: relative; overflow: hidden; padding: 0px; margin: 0px; border:0; list-style:none; cursor:pointer;">
+                            <li style="float:left; width:400px; border:0;">
+                                <div class="col-md-4 ">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" width="370" height="247" src="images/portfolio/suumo.png" alt="">
+                                            <figcaption>
+                                                <h5>房地产销售网站</h5>
+                                                <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                            <li style="float:left; width:400px; border:0;">
+                                <!-- PORTFOLIO IMAGE 3 -->
+                                <div class="col-md-4">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" src="images/portfolio/webbuild.png" alt="">
+                                            <figcaption>
+                                                <h5>建设中</h5>
+                                                <!--<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>-->
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="case_3" class="picScroll-case displayN" style="width:1200px; border:0;">
+                    <div class="bd" style="overflow:hidden; position:relative; width:1200px; border:0;">
+                        <ul class="picList" style="position: relative; overflow: hidden; padding: 0px; margin: 0px; border:0; list-style:none; cursor:pointer;">
+                            <li style="float:left; width:400px; border:0;">
+                                <div class="col-md-4">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" src="images/portfolio/dfwlx.png" alt="">
+                                            <figcaption>
+                                                <h5>东方万里行</h5>
+                                                <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                            <li style="float:left; width:400px; border:0;">
+                                <!-- PORTFOLIO IMAGE 3 -->
+                                <div class="col-md-4">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" src="images/portfolio/webbuild.png" alt="">
+                                            <figcaption>
+                                                <h5>建设中</h5>
+                                                <!--<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>-->
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="case_4" class="picScroll-case displayN" style="width:1200px; border:0;">
+                    <div class="bd" style="overflow:hidden; position:relative; width:1200px; border:0;">
+                        <ul class="picList" style="position: relative; overflow: hidden; padding: 0px; margin: 0px; border:0; list-style:none; cursor:pointer;">
+                            <li style="float:left; width:400px; border:0;">
+                                <!-- PORTFOLIO IMAGE 3 -->
+                                <div class="col-md-4">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" src="images/portfolio/webbuild.png" alt="">
+                                            <figcaption>
+                                                <h5>建设中</h5>
+                                                <!--<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>-->
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="case_5" class="picScroll-case displayN" style="width:1200px; border:0;">
+                    <div class="bd" style="overflow:hidden; position:relative; width:1200px; border:0;">
+                        <ul class="picList" style="position: relative; overflow: hidden; padding: 0px; margin: 0px; border:0; list-style:none; cursor:pointer;">
+                            <li style="float:left; width:400px; border:0;">
+                                <!-- PORTFOLIO IMAGE 3 -->
+                                <div class="col-md-4">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" src="images/portfolio/webbuild.png" alt="">
+                                            <figcaption>
+                                                <h5>建设中</h5>
+                                                <!--<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>-->
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="case_6" class="picScroll-case displayN" style="width:1200px; border:0;">
+                    <div class="bd" style="overflow:hidden; position:relative; width:1200px; border:0;">
+                        <ul class="picList" style="position: relative; overflow: hidden; padding: 0px; margin: 0px; border:0; list-style:none; cursor:pointer;">
+                            <li style="float:left; width:400px; border:0;">
+                                <!-- PORTFOLIO IMAGE 3 -->
+                                <div class="col-md-4">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" src="images/portfolio/webbuild.png" alt="">
+                                            <figcaption>
+                                                <h5>建设中</h5>
+                                                <!--<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>-->
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="case_7" class="picScroll-case displayN" style="width:1200px; border:0;">
+                    <div class="bd" style="overflow:hidden; position:relative; width:1200px; border:0;">
+                        <ul class="picList" style="position: relative; overflow: hidden; padding: 0px; margin: 0px; border:0; list-style:none; cursor:pointer;">
+                            <li style="float:left; width:400px; border:0;">
+                                <!-- PORTFOLIO IMAGE 3 -->
+                                <div class="col-md-4">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" src="images/portfolio/webbuild.png" alt="">
+                                            <figcaption>
+                                                <h5>建设中</h5>
+                                                <!--<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>-->
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="case_8" class="picScroll-case displayN" style="width:1200px; border:0;">
+                    <div class="bd" style="overflow:hidden; position:relative; width:1200px; border:0;">
+                        <ul class="picList" style="position: relative; overflow: hidden; padding: 0px; margin: 0px; border:0; list-style:none; cursor:pointer;">
+                            <li style="float:left; width:400px; border:0;">
+                                <!-- PORTFOLIO IMAGE 3 -->
+                                <div class="col-md-4">
+                                    <div class="grid mask">
+                                        <figure>
+                                            <img class="img-responsive" src="images/portfolio/webbuild.png" alt="">
+                                            <figcaption>
+                                                <h5>建设中</h5>
+                                                <!-- <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">详细信息(建设中)</a>-->
+                                            </figcaption><!-- /figcaption -->
+                                        </figure><!-- /figure -->
+                                    </div><!-- /grid-mask -->
+                                </div><!-- /col -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="width:1200px; margin-top:15px;">
+                    <ul style="width:560px; margin:0 auto; padding:0px;">
+                    	<li id="btn_case_1" class="switchCaseBtn switchCaseBtn-on" onClick="switchCase('1')">手机</li>
+                        <li id="btn_case_2"  class="switchCaseBtn switchCaseBtn-off" onClick="switchCase('2')">金融</li>
+                        <li id="btn_case_3"  class="switchCaseBtn switchCaseBtn-off" onClick="switchCase('3')">管理</li>
+                        <li id="btn_case_4"  class="switchCaseBtn switchCaseBtn-off" onClick="switchCase('4')">网站</li>
+                        <li id="btn_case_5"  class="switchCaseBtn switchCaseBtn-off" onClick="switchCase('5')">电商</li>
+                        <li id="btn_case_6"  class="switchCaseBtn switchCaseBtn-off" onClick="switchCase('6')">政务</li>
+                        <li id="btn_case_7"  class="switchCaseBtn switchCaseBtn-off" onClick="switchCase('7')">物联网</li>
+                        <li id="btn_case_8"  class="switchCaseBtn switchCaseBtn-off" onClick="switchCase('8')">财务</li>
+                    </ul>
+                </div>
+			</div><!-- row -->
+		</div><!-- container -->
+		
+		<!-- ==== SERVICES ==== -->
+		<div class="container" id="team" name="team">
+			<br>
+			<br>
+			<div class="row">
+				<h2 class="centered">团队介绍</h2>
+				<hr>
+				<br>
+				<div class="col-lg-offset-2 col-lg-8">
+					<p>我们是一支充满激情、志向远大、怀揣梦想的团队，也是一个思维活跃、朝气蓬勃、团结互助的大家庭。
+我们的核心团队成员分别来自国内各大的互联网公司，在交通、银行、证券、税务、门户、政务、电商、APP、管理等软件系统开发中担当过各种重要的职位。
+在软件的设计开发方面经验丰富。</p>
+					<br>
+				</div><!-- col-lg -->
+			</div><!-- row -->
+		</div><!-- container -->
+        <section class="section-divider textdivider divider2" style="background:url('images/bg/team_bg.jpg') no-repeat center top;background-size: 100% 100%;">
+			<div class="container">
+				<h1>DESIGN CREATES EMOTIONAL CONNECTION</h1>
+				<hr>
+				<p>There’s more to design than meets the eye. It’s when it meets the heart that design creates a meaningful, lasting connection with the audience.</p>
+			</div><!-- container -->
+		</section><!-- section -->
+  		
+        <div class="container" id="contact" name="contact">
+			<div class="row">
+			<br>
+				<h1 class="centered">联系我们</h1>
+				<hr>
+				<br>
+				<div class="col-lg-4">
+					<h3>上海优潮软件技术有限公司</h3>
+					<p style="cursor:pointer;" onClick="bMapPoint();"><span class="icon icon-home"></span> 上海市普陀区金沙江路1518弄2号楼923室<br/>
+						<!-- <span class="icon icon-mobile"></span> 138 8888 8888 <br/> -->
+						<span class="icon icon-envelop"></span> 售前咨询: consult@urcsoft.com <br/>
+                        <span class="icon icon-envelop"></span> 售后服务: service@urcsoft.com <br/>
+                        <img src="images/QQ.png" style="margin-left:-1px; margin-top:-4px; width:20px; height:20px; background-size:100% 100%;" /> 2128619148 <br/>
+						<!-- <img src="images/wechat.png" style="margin-left:-2px; width:20px; height:20px; background-size:100% 100%;" /> &nbsp;888 888 <br/> -->
+					</p>
+				</div><!-- col -->
+				
+				<div class="col-lg-4">
+					<h3>建议及问题</h3>
+					<p>如果您对我们上海优潮软件技术有限公司有任何建议和疑问，请填写下面邮箱和建议及问题。让我们能够更好的为您进行服务。</p>
+					<p>
+						<form class="form-horizontal" role="form">
+						  <div class="form-group">
+						    <label for="inputEmail1" class="col-lg-4 control-label"></label>
+						    <div class="col-lg-10">
+						      <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="text1" class="col-lg-4 control-label"></label>
+						    <div class="col-lg-10">
+						      <input type="text" class="form-control" id="text1" placeholder="Your Question">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-lg-10">
+						      <button type="submit" class="btn btn-success">保存</button>
+						    </div>
+						  </div>
+					   </form><!-- form -->
+					</p>
+				</div><!-- col -->
+				
+				<div class="col-lg-4">
+					<h3>我们的位置</h3>
+					<div id="allmap" style="background:#CCC; height:240px;"></div>
+				</div><!-- col -->
+
+			</div><!-- row -->
+		
+		</div><!-- container -->
+
+		<div id="footerwrap">
+			<div class="container">
+				<h4><a style="color:white" href="http://beian.miit.gov.cn/">沪ICP备17016968号-1</a></h4>
+			</div>
+			<div class="container">
+				<h4>Created by <a href="#">URC</a> - Copyright 2017</h4>
+			</div>
+		</div>
+
+<style type="text/css">
+		/* css 重置 */
+		
+
+		/* 本例子css */
+		.picScroll-left{ width:450px;  overflow:hidden; position:relative;   }
+
+		</style>
+
+		
+
+		<script type="text/javascript">
+		
+		var map = new BMap.Map("allmap");
+
+		var new_point = new BMap.Point(121.389019,31.238592);
+		map.enableScrollWheelZoom(true);
+		map.centerAndZoom(new_point,18);
+		var marker = new BMap.Marker(new_point);  // 创建标注
+		map.addOverlay(marker);              // 将标注添加到地图中
+		//var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+		//var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+		var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT}); //右上角
+		//map.addControl(top_left_control);     
+		//map.addControl(top_left_navigation);
+		map.addControl(top_right_navigation);
+		
+		$(document).ready(function() {
+			$(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",mouseOverStop:true,autoPlay:false,trigger:"click",autoPage:true,effect:"leftLoop",vis:4,trigger:"click",scroll:4});
+			
+			//jQuery(".picScroll-case").slide({titCell:".hd ul",mainCell:".bd ul",mouseOverStop:true,autoPlay:false,trigger:"click",autoPage:true,effect:"leftLoop",vis:3,trigger:"click",scroll:3});
+			bMapPoint();
+			
+			// start 回到页面顶部
+		$(window).scroll(function(){
+			if ($(window).scrollTop() > 300){
+				$("#scrollUp").fadeIn(500);
+			}else{
+				$("#scrollUp").fadeOut(500);
+			}  
+		});
+		$("#scrollUp").click(function(){
+            $("body,html").animate({scrollTop:0},500);
+            return false;
+        });
+			
+		});
+		
+		function bMapPoint(){
+			map.panTo(new_point);
+		}
+
+		function switchCase(ind){
+			// 已经选择
+			if($("#btn_case_" + ind).hasClass("switchCaseBtn-on")) return;
+			
+			$("div[id^='case_']").slideUp(500);
+			$("li[id^='btn_case_']").removeClass("switchCaseBtn-on");
+			$("li[id^='btn_case_']").addClass("switchCaseBtn-off");
+
+			$("#case_" + ind).slideDown(500);
+			$("#btn_case_" + ind).removeClass("switchCaseBtn-off");
+			$("#btn_case_" + ind).addClass("switchCaseBtn-on");
+		}
+		
+		
+		
+		function showArrow(){
+			$("#right_arrow").show();
+			$("#left_arrow").show();
+		}
+		
+		function hideArrow(){
+			$("#right_arrow").hide();
+			$("#left_arrow").hide();
+		}
+		</script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/smoothscroll.js"></script>
+	<script type="text/javascript" src="js/jquery-func.js"></script>
+  </body>
+</html>
